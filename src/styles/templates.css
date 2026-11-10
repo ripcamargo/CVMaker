@@ -1,0 +1,188 @@
+/* ============================================================
+   Resume document styles — A4 pages (794 × 1123 px @ 96dpi)
+   Everything here is shared by preview, PDF, PNG and print.
+   ============================================================ */
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/open-sans/400.css';
+@import '@fontsource/open-sans/600.css';
+@import '@fontsource/open-sans/700.css';
+
+.tpl {
+  --accent: #1e3a5f;
+  --page-w: 794px;
+  --page-h: 1123px;
+  width: var(--page-w);
+  color: #111;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.tpl[data-accent='navy'] { --accent: #1e3a5f; }
+.tpl[data-accent='green'] { --accent: #1f4d3a; }
+.tpl[data-accent='graphite'] { --accent: #2f3640; }
+
+/* ---------- Page frame ---------- */
+.cv-page {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  background: #fff;
+  overflow: hidden;
+  flex: none;
+}
+.cv-clip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.cv-flow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--page-w);
+}
+
+/* Off-screen measuring box */
+.cv-measure {
+  position: absolute;
+  left: -20000px;
+  top: 0;
+  pointer-events: none;
+}
+.cv-root { width: var(--page-w); }
+
+/* ---------- Shared document primitives ---------- */
+.cv-root, .cv-flow { font-size: 12.5px; line-height: 1.5; }
+.cv-root h1, .cv-root h2, .cv-flow h1, .cv-flow h2 { margin: 0; }
+.cv-root p, .cv-flow p { margin: 0; }
+.cv-root a, .cv-flow a { color: inherit; text-decoration: none; }
+.cv-section { margin-bottom: 20px; }
+.cv-block { margin-bottom: 11px; }
+.cv-section > .cv-block:last-child { margin-bottom: 0; }
+.cv-text { margin: 4px 0 0; overflow-wrap: anywhere; }
+.cv-list { margin: 4px 0 0; padding-left: 16px; }
+.cv-list li { margin: 0 0 2px; padding-left: 2px; overflow-wrap: anywhere; }
+.cv-subhead { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; opacity: .65; }
+.cv-achievements { margin-top: 2px; }
+.cv-empty { color: #9ca3af; text-align: center; padding-top: 360px; font-family: 'Inter', sans-serif; }
+
+/* ============================================================
+   MODELO 01 — ELEGANTE MINIMALISTA
+   ============================================================ */
+.tpl-elegant { font-family: 'Inter', system-ui, sans-serif; color: #151515; }
+.tpl-elegant .cv-root, .tpl-elegant .cv-flow { padding: 0 58px; width: var(--page-w); box-sizing: border-box; font-size: 12.4px; line-height: 1.55; }
+.tpl-elegant .el-header { text-align: center; padding-bottom: 18px; border-bottom: 1px solid #151515; margin-bottom: 24px; }
+.tpl-elegant .el-name { font-weight: 700; font-size: 32px; letter-spacing: -.01em; line-height: 1.15; }
+.tpl-elegant .el-title { margin-top: 8px; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #555; font-weight: 500; }
+.tpl-elegant .el-contacts { margin-top: 14px; font-size: 11.5px; color: #444; display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 10px; }
+.tpl-elegant .el-sep { color: #bbb; }
+.tpl-elegant .el-heading { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 1px solid #d9d9d9; }
+.tpl-elegant .el-row { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+.tpl-elegant .el-strong { font-weight: 600; }
+.tpl-elegant .el-date { font-size: 11.5px; color: #555; white-space: nowrap; }
+.tpl-elegant .el-meta { color: #555; font-size: 12px; margin-bottom: 2px; }
+.tpl-elegant .el-meta-inline { color: #555; font-weight: 400; }
+.tpl-elegant .el-compact { margin: 0; }
+.tpl-elegant .cv-section > .cv-block { margin-bottom: 13px; }
+.tpl-elegant .cv-section > .cv-block:last-child { margin-bottom: 0; }
+.tpl-elegant .cv-subhead { opacity: .55; letter-spacing: .12em; }
+
+/* ============================================================
+   MODELO 02 — MODERNO E ESTILIZADO
+   ============================================================ */
+.tpl-modern { font-family: 'Inter', system-ui, sans-serif; }
+.tpl-modern .cv-page { background: linear-gradient(90deg, var(--accent) 0, var(--accent) 252px, #fff 252px); }
+.tpl-modern .cv-root, .tpl-modern .cv-flow { font-size: 12px; line-height: 1.5; color: #1f2933; }
+.tpl-modern .mo-grid { display: grid; grid-template-columns: 252px 1fr; align-items: start; }
+.tpl-modern .mo-side { padding: 0 24px; color: #fff; }
+.tpl-modern .mo-side .cv-section { margin-bottom: 22px; }
+.tpl-modern .mo-side .cv-block { margin-bottom: 8px; }
+.tpl-modern .mo-main { padding: 0 38px 0 36px; }
+.tpl-modern .mo-photo-wrap { display: flex; justify-content: center; margin-bottom: 26px; }
+.tpl-modern .mo-photo { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,.9); display: block; }
+.tpl-modern .mo-side-heading { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding-bottom: 6px; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.28); }
+.tpl-modern .mo-contacts, .tpl-modern .mo-skills, .tpl-modern .mo-langs { list-style: none; margin: 0; padding: 0; }
+.tpl-modern .mo-contacts li { display: flex; gap: 9px; align-items: flex-start; font-size: 11.2px; margin-bottom: 8px; overflow-wrap: anywhere; line-height: 1.4; }
+.tpl-modern .mo-contacts svg { flex: none; margin-top: 1px; opacity: .8; }
+.tpl-modern .mo-skills li { font-size: 11.6px; padding: 3px 0 3px 12px; position: relative; }
+.tpl-modern .mo-skills li::before { content: ''; position: absolute; left: 0; top: 11px; width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,.7); }
+.tpl-modern .mo-langs li { display: flex; flex-direction: column; margin-bottom: 7px; font-size: 11.6px; }
+.tpl-modern .mo-langs span { font-size: 10.8px; opacity: .72; }
+.tpl-modern .mo-header { margin-bottom: 22px; }
+.tpl-modern .mo-name { font-size: 32px; line-height: 1.12; font-weight: 700; letter-spacing: -.01em; color: var(--accent); overflow-wrap: anywhere; }
+.tpl-modern .mo-title { margin-top: 6px; font-size: 14px; color: #5b6570; font-weight: 500; }
+.tpl-modern .mo-heading { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.tpl-modern .mo-heading::after { content: ''; flex: 1; height: 1px; background: #dde2e8; }
+.tpl-modern .mo-main .cv-section { margin-bottom: 14px; }
+.tpl-modern .mo-main .cv-section > .cv-block { margin-bottom: 0; }
+.tpl-modern .mo-item { position: relative; border-left: 2px solid #e3e8ee; padding: 0 0 16px 16px; margin-left: 4px; }
+.tpl-modern .mo-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); box-sizing: border-box; }
+.tpl-modern .cv-section > .cv-block:first-child .mo-item { padding-top: 0; }
+.tpl-modern .mo-strong { font-weight: 600; font-size: 13px; color: #111827; }
+.tpl-modern .mo-meta { font-size: 11.2px; color: #667085; margin-bottom: 3px; }
+.tpl-modern .mo-main > .cv-section > .cv-block > .cv-text:only-child { margin-top: 0; }
+.tpl-modern .mo-header + .cv-section .cv-text { margin-top: 0; }
+.tpl-modern .cv-subhead { color: var(--accent); opacity: .85; }
+
+/* ============================================================
+   MODELO 03 — PADRÃO EUROPEU
+   ============================================================ */
+.tpl-europass { font-family: 'Open Sans', system-ui, sans-serif; --eu: #0e47cb; color: #1f2937; }
+.tpl-europass .cv-root, .tpl-europass .cv-flow { padding: 0 48px; box-sizing: border-box; width: var(--page-w); font-size: 11.8px; line-height: 1.5; }
+.tpl-europass .eu-header { display: flex; align-items: flex-start; gap: 22px; padding-bottom: 6px; margin-bottom: 22px; }
+.tpl-europass .eu-photo { width: 112px; height: 112px; object-fit: cover; flex: none; display: block; }
+.tpl-europass .eu-header-text { min-width: 0; flex: 1; }
+.tpl-europass .eu-name { font-size: 30px; line-height: 1.15; font-weight: 700; color: var(--eu); overflow-wrap: anywhere; }
+.tpl-europass .eu-title { font-size: 14px; margin-top: 3px; color: #374151; font-weight: 600; }
+.tpl-europass .eu-contacts { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 18px; }
+.tpl-europass .eu-contacts li { display: flex; gap: 8px; align-items: center; font-size: 11.5px; overflow-wrap: anywhere; min-width: 0; }
+.tpl-europass .eu-contacts svg { flex: none; color: var(--eu); }
+.tpl-europass .cv-section { margin-bottom: 20px; }
+.tpl-europass .cv-section > .cv-block { margin-bottom: 11px; }
+.tpl-europass .cv-section > .cv-block:last-child { margin-bottom: 0; }
+.tpl-europass .eu-heading { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--eu); padding-bottom: 4px; margin-bottom: 10px; border-bottom: 1.5px solid var(--eu); }
+.tpl-europass .eu-row { display: grid; grid-template-columns: 150px 1fr; column-gap: 20px; }
+.tpl-europass .eu-label { font-size: 11px; font-weight: 700; color: #1f2937; text-transform: uppercase; letter-spacing: .01em; overflow-wrap: anywhere; padding-top: 1px; }
+.tpl-europass .eu-content { min-width: 0; overflow-wrap: anywhere; }
+.tpl-europass .eu-strong { font-weight: 700; color: #111827; font-size: 12.5px; }
+.tpl-europass .eu-org { color: #374151; font-weight: 600; margin-bottom: 2px; }
+.tpl-europass .eu-skills { overflow-wrap: anywhere; }
+.tpl-europass .eu-lang-line { margin-bottom: 6px; }
+.tpl-europass .eu-lang-key { color: #374151; font-weight: 600; }
+.tpl-europass .eu-cefr { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 2px; }
+.tpl-europass .eu-cefr th, .tpl-europass .eu-cefr td { text-align: center; padding: 5px 6px; border: 1px solid #c9d3ea; font-weight: 400; }
+.tpl-europass .eu-cefr thead th { background: #eef3fd; color: var(--eu); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .03em; }
+.tpl-europass .eu-cefr thead th.eu-cefr-sub { font-weight: 600; text-transform: none; font-size: 10.5px; letter-spacing: 0; background: #f6f8fe; color: #374151; }
+.tpl-europass .eu-cefr .eu-cefr-name { text-align: left; font-weight: 700; width: 20%; }
+.tpl-europass .eu-cefr tbody td:not(.eu-cefr-name) { font-weight: 700; color: var(--eu); }
+.tpl-europass .eu-cefr thead th.eu-cefr-name { background: #fff; border-color: transparent; border-bottom-color: #c9d3ea; }
+.tpl-europass .eu-cefr-note { font-size: 10px; color: #6b7280; margin-top: 6px; }
+.tpl-europass .cv-subhead { opacity: .7; }
+.tpl-europass .cv-text { margin-top: 0; }
+
+/* Placeholder keeps the page visible while empty */
+
+/* Justified body text (descriptions, summary, bullets) */
+.cv-flow .cv-text,
+.cv-flow .cv-list li,
+.cv-root .cv-text,
+.cv-root .cv-list li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+/* Several roles at the same company (promotions) */
+.tpl-elegant .el-pos { margin-top: 7px; padding-left: 12px; border-left: 1px solid #d4d4d4; }
+.tpl-elegant .el-pos-title { font-weight: 600; font-size: 12.2px; }
+.tpl-modern .mo-pos { margin-top: 8px; padding-left: 10px; border-left: 2px solid #e3e8ee; }
+.tpl-modern .mo-pos-title { font-weight: 600; font-size: 12px; color: #111827; }
+.tpl-europass .eu-pos { margin-top: 7px; padding-left: 10px; border-left: 2px solid #c9d3ea; }
+.tpl-europass .eu-pos-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.tpl-europass .eu-pos-title { font-weight: 700; color: var(--eu); }
+.tpl-europass .eu-pos-date { font-size: 11px; font-weight: 600; color: #374151; white-space: nowrap; }
