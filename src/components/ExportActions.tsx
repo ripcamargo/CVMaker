@@ -33,7 +33,7 @@ export function ExportActions({ data, notify }: Props) {
       // let the latest layout settle before capturing
       await new Promise((r) => setTimeout(r, 150))
       if (kind === 'pdf') {
-        const dropped = await exportPdf(fileSlug(data.personal.fullName), buildPdfMetadata(data))
+        const dropped = await exportPdf(fileSlug(data.personal.fullName, data.settings.lang), buildPdfMetadata(data))
         if (dropped.length) {
           notify(
             `PDF gerado, mas estes caracteres não puderam ser incluídos no texto: ${dropped.slice(0, 8).join(' ')}`,
@@ -41,7 +41,7 @@ export function ExportActions({ data, notify }: Props) {
           )
         } else notify('PDF gerado com sucesso.', 'success')
       } else {
-        await exportPng(fileSlug(data.personal.fullName))
+        await exportPng(fileSlug(data.personal.fullName, data.settings.lang))
         notify('Imagem PNG gerada com sucesso.', 'success')
       }
     } catch (e) {

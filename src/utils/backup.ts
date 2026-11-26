@@ -16,7 +16,8 @@ interface BackupFile {
 export function downloadBackup(data: ResumeData): string {
   const file: BackupFile = { app: APP, version: VERSION, exportedAt: new Date().toISOString(), data }
   const blob = new Blob([JSON.stringify(file, null, 2)], { type: 'application/json' })
-  const name = `${fileSlug(data.personal.fullName).replace(/^curriculo/, 'cvmaker-dados')}.json`
+  const base = fileSlug(data.personal.fullName, data.settings.lang)
+  const name = `${data.settings.lang === 'en' ? base.replace(/^Resume/, 'Resume-data') : base.replace(/^curriculo/, 'cvmaker-dados')}.json`
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url

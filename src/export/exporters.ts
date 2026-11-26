@@ -16,14 +16,15 @@ function pageElements(): HTMLElement[] {
   return Array.from(exportRoot().querySelectorAll<HTMLElement>('.cv-page'))
 }
 
-export function fileSlug(name: string): string {
+/** File name base: "curriculo-nome" (pt) or "Resume-nome" (en). */
+export function fileSlug(name: string, lang: 'pt' | 'en' = 'pt'): string {
   const slug = name
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-  return `curriculo${slug ? '-' + slug : ''}`
+  return `${lang === 'en' ? 'Resume' : 'curriculo'}${slug ? '-' + slug : ''}`
 }
 
 /**
