@@ -26,6 +26,7 @@ export const emptyResume = (): ResumeData => ({
   skills: [],
   languages: [],
   additional: [],
+  jobKeywords: '',
   translations: {},
   settings: {
     template: 'elegant',

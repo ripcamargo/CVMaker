@@ -2,13 +2,16 @@ import { useState } from 'react'
 import { Plus, X } from 'lucide-react'
 import type { Skill } from '../../types/resume'
 import { uid } from '../../utils/format'
+import { TextField } from '../ui/Field'
 
 interface Props {
   items: Skill[]
   onChange: (items: Skill[]) => void
+  jobKeywords: string
+  onJobKeywords: (v: string) => void
 }
 
-export function SkillsForm({ items, onChange }: Props) {
+export function SkillsForm({ items, onChange, jobKeywords, onJobKeywords }: Props) {
   const [text, setText] = useState('')
 
   const add = () => {
@@ -72,6 +75,14 @@ export function SkillsForm({ items, onChange }: Props) {
       ) : (
         <p className="empty-note">Nenhuma habilidade adicionada ainda.</p>
       )}
+      <TextField
+        label="Palavras-chave da vaga"
+        optional
+        value={jobKeywords}
+        onChange={onJobKeywords}
+        placeholder="Ex.: Scrum, SQL, gestão de projetos"
+        hint="Não aparecem no currículo: vão apenas para os metadados do PDF, lidos por sistemas de recrutamento (ATS). Use somente termos que descrevem você."
+      />
     </div>
   )
 }

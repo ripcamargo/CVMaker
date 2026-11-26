@@ -121,7 +121,7 @@ export function ResumeBuilder({ onHome }: { onHome: () => void }) {
           <RotateCcw size={16} /> <span>Reiniciar</span>
         </button>
         <BackupActions data={data} hasContent={!isBlank(data)} onImport={onImport} notify={notify} />
-        <ExportActions fullName={data.personal.fullName} notify={notify} />
+        <ExportActions data={data} notify={notify} />
       </Header>
 
       <div className="builder-body">
@@ -189,7 +189,12 @@ export function ResumeBuilder({ onHome }: { onHome: () => void }) {
                 {step === 'experience' && <ExperienceForm items={data.experiences} onChange={(v) => set('experiences', v)} />}
                 {step === 'education' && <EducationForm items={data.education} onChange={(v) => set('education', v)} />}
                 {step === 'courses' && <CoursesForm items={data.courses} onChange={(v) => set('courses', v)} />}
-                {step === 'skills' && <SkillsForm items={data.skills} onChange={(v) => set('skills', v)} />}
+                {step === 'skills' && <SkillsForm
+                    items={data.skills}
+                    onChange={(v) => set('skills', v)}
+                    jobKeywords={data.jobKeywords}
+                    onJobKeywords={(v) => set('jobKeywords', v)}
+                  />}
                 {step === 'languages' && <LanguagesForm items={data.languages} onChange={(v) => set('languages', v)} />}
                 {step === 'additional' && <AdditionalForm items={data.additional} onChange={(v) => set('additional', v)} />}
               </div>

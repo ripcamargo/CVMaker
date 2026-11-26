@@ -110,6 +110,8 @@ export interface ResumeData {
   skills: Skill[]
   languages: Language[]
   additional: AdditionalItem[]
+  /** Optional target-job keywords (comma separated). Only written to the PDF metadata. */
+  jobKeywords: string
   /** Cache of translated texts: original line -> English. */
   translations: Record<string, string>
   settings: {
